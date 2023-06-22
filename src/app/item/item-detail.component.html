@@ -1,0 +1,18 @@
+
+<ActionBar [title]="chatName"> 
+<ActionItem ios.position="left">
+  <StackLayout orientation="horizontal" (tap)="goBack()">
+      <label text="back"
+          style="margin-left: -10;vertical-align: middle;text-align: center; padding: 3;height: 35;margin-bottom: 4;" (tap)="goBack()"></label>
+  </StackLayout>
+</ActionItem>
+<NavigationButton [visibility]="isItemVisible ? 'collapsed' : 'collapsed'" height="50" width="50">
+</NavigationButton>
+</ActionBar>
+
+<FlexboxLayout flexDirection="column">
+  <FlexboxLayout class="m-15">
+    <Label class="h2" [text]="chatName"></Label>
+  </FlexboxLayout>
+  <Label class="h4 m-15" [text]="messageIdCheck"></Label>
+</FlexboxLayout>

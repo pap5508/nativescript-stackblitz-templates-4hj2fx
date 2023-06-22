@@ -1,0 +1,46 @@
+<GridLayout class="p-20">
+  <StackLayout>
+    <Label *ngIf="isAndroid" class="h1 text-center" text="1 imagePickerAndroid" textWrap="true"
+      (tap)="imagePickerAndroid()"></Label>
+    <Label *ngIf="isAndroid" class="h1 text-center" text="2. DocumentAndroid" textWrap="true"
+      (tap)="DocumentAndroid()"></Label>
+    <Label *ngIf="isAndroid" class="h1 text-center" text="3 cameraAndroid" textWrap="true"
+      (tap)="cameraAndroid()"></Label>
+
+
+    <Label *ngIf="!isAndroid" class="h1 text-center" text="1 imagePickeriOS" textWrap="true"
+      (tap)="imagePickeriOS()"></Label>
+    <Label *ngIf="!isAndroid" class="h1 text-center" text="2. DocumentiOS" textWrap="true"
+      (tap)="DocumentiOS()"></Label>
+    <Label *ngIf="!isAndroid" class="h1 text-center" text="3 cameraiOS" textWrap="true" (tap)="cameraiOS()"></Label>
+
+
+
+    <GridLayout ios:height="100%" row="2" col="0" *ngIf="tempArray.length > 0">
+
+
+      <!-- <ScrollView orientation="vertical">
+          <StackLayout style="margin: 10;padding: 10;">
+            <GridLayout ios:height="auto" rows="auto,auto" *ngFor="let item of qrTextList">
+              <Image row="0" width="100%" height="150" [src]="item.image" stretch="aspectFill">
+              </Image>
+              <Label row="1" [text]="item.geldkarteart + ' ' + item.jahr" horizontalAlignment="center" color="black"
+                ios:style="margin-top: 5;"></Label>
+            </GridLayout>
+          </StackLayout>
+        </ScrollView> -->
+      <carousel #myCarousel [items]="tempArray">
+        <carousel-item *ngFor="let item of tempArray">
+          <GridLayout ios:height="auto" rows="auto,auto">
+            <Image row="0" width="100%" height="150" [src]="item.image" stretch="aspectFill">
+            </Image>
+            <Label row="1" [text]="item.geldkarteart + ' ' + item.jahr" horizontalAlignment="center" color="black"
+              ios:style="margin-top: 5;"></Label>
+          </GridLayout>
+          <!--           <Label style="background-color: red;">{{ item.jahr }}</Label> -->
+        </carousel-item>
+      </carousel>
+    </GridLayout>
+
+  </StackLayout>
+</GridLayout>

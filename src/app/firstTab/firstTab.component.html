@@ -1,0 +1,40 @@
+<GridLayout rows="auto,*" class="p-20">
+    <!-- <Image row="0"
+        src="https://www.photographyblog.com/imager/entryimages/7675/kodak_pixpro_fz201_photos_8c9cd6ffa9b02044a7a3327bc82c5649.jpg"
+        class="thumb img-circle">
+    </Image> -->
+    <!-- <ListView row="1" [items]="countries" style="height:1250px">
+        <ng-template let-country="item">
+            <FlexboxLayout flexDirection="row">
+                <Image [src]="country.imageSrc" class="thumb img-circle">
+                </Image>
+                <Label [text]="country.name" class="t-12" verticalAlignment="center" style="width: 60%"></Label>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView> -->
+
+    <RadListView row="1" [items]="oneTabItemsKachel">
+        <ListViewGridLayout tkListViewLayout scrollDirection="Vertical" [itemHeight]="itemHeightChange" spanCount="1">
+        </ListViewGridLayout>
+        <ng-template tkListItemTemplate let-item="item">
+            <GridLayout columns="auto, *, auto" rows="auto" style="margin:5;">
+                <StackLayout col="0" style="height: 45; width: 45; border-radius: 20px;margin-left: 20;"
+                    [backgroundColor]="item.tileColor" verticalAlignment="center" horizontalAlignment="right">
+                    <Image col="0" stretch="aspectFill" [src]="item.tileImageSmall" stretch="aspectFill"
+                        ios:style="height:32;width:32;" android:style="height:30;width:30;vertical-align: middle;">
+                    </Image>
+                </StackLayout>
+                <StackLayout col="1" row="0" orientation="horizontal">
+                    <Label [text]="item.tileName" textWrap="true" verticalAlignment="center"
+                        style="color: black;font: bolder;font-size: 18;margin-left: 10;vertical-align: middle;"></Label>
+                    <Label col="1" row="0" [text]="item.notificationCount" *ngIf="item.notificationCount > 0"
+                        ios:class="itemNewMsgBubble" android:class="itemNewMsgBubbleAndroid" textWrap="true"
+                        verticalAlignment="center" ios:style="margin-left: 10;"
+                        android:style="font-size:11;color: white;vertical-align:middle;horizontal-align:center; text-align: center;margin-left: 10;"></Label>
+                </StackLayout>
+
+            </GridLayout>
+
+        </ng-template>
+    </RadListView>
+</GridLayout>
